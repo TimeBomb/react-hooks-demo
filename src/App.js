@@ -1,28 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import HookComponent from './components/HookComponent';
+import HookEffectComponent from './components/HookEffectComponent';
+import HookCustomComponent from './components/HookCustomComponent';
+import ClassComponent from './components/ClassComponent';
+import FunctionComponent from './components/FunctionComponent';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-export default App;
+export default function AppRouter() {
+  return (
+    <Router>
+        <div className="container">
+          <Route path="/class/" component={ClassComponent} />
+          <Route path="/function/" component={FunctionComponent} />
+          <Route path="/hook/" component={HookComponent} />
+          <Route path="/hookeffect/" component={HookEffectComponent} />
+          <Route path="/hookcustom/" component={HookCustomComponent} />
+        </div>
+    </Router>
+  );
+};
